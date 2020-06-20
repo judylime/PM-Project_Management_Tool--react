@@ -5,7 +5,6 @@ import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
-  <h2>React Trello</h2>
     <App />
   </React.StrictMode>,
   document.getElementById('root')
