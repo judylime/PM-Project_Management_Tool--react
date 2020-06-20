@@ -20,14 +20,22 @@ class Board extends React.Component {
   }
   render() {
     return (
-      <div className="lists-wrapper">
-        <button onClick ={this.createNewList}>New List</button>
-        {Object.keys(this.state.currentLists).map(key => (
-          <List 
-            key = {this.state.currentLists[key].id}
-            list={this.state.currentLists[key]} />
-        ))}
-
+      <div>
+        <div className="lists-wrapper">
+          <button onClick ={this.createNewList}>New List</button>
+          {Object.keys(this.state.currentLists).map(key => (
+            <List 
+              key = {this.state.currentLists[key].id}
+              list={this.state.currentLists[key]} />
+          ))}
+        </div>
+        <form onSubmit ={ this.createNewList}
+          className="new-list-wrapper"  >
+            <input
+            type="text"
+            name="name"
+            placeholder= " + New List" />
+        </form>
       </div>
     )
   }
