@@ -9,14 +9,30 @@ class Board extends React.Component {
   componentDidMount () {
     this.setState({currentLists:  data.lists })
   }
-  createNewList =() => {
+  addBoardInput = React.createRef()
+
+  createNewList =(e) => {
+    e.preventDefault()
     const list ={
       id: Math.random(),
-      title: "My amazing list",
+      title: this.addBoardInput.current.value,
       board: 300,
-      creatdAt: new Date()
+      creatdAt: new Date(),
+      cards:[
+        {
+          id:1,
+          text:'Card 1'
+        },
+        {
+          id:2,
+          text:'Card 2'
+        }
+      ]
     }
-    this.setState({ currentLists: [...this.state.currentLists, list]})
+    if (list.title) {
+      this.setState({ currentLists: [...this.state.currentLists, list]})
+    }
+    this.addBoardInput.current.value = ''
   }
   render() {
     return (
@@ -33,6 +49,7 @@ class Board extends React.Component {
           className="new-list-wrapper"  >
             <input
             type="text"
+            ref={this.addBoardInput}
             name="name"
             placeholder= " + New List" />
         </form>
