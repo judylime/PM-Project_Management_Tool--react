@@ -6,8 +6,12 @@ import { withRouter } from "react-router-dom";
 class BoardPreview extends React.Component {
   goToBoard = () => {
     const boardId = this.props.board.id
-    this.props.histery.push ({
-      pathname:`/board/${boardId}`
+    this.props.history.push ({
+      pathname:`/board/${boardId}`,
+      state: {
+        title:this.props.board.title,
+        background: this.props.board.background
+      }
     })
   }
   render ( ) {
