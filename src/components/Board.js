@@ -45,7 +45,7 @@ class Board extends React.Component {
           <button>Delete board</button>
         </div>
         <div className="lists-wrapper">
-          <button onClick ={this.createNewList}>New List</button>
+          
           {Object.keys(this.state.currentLists).map(key => (
             <List 
               key = {this.state.currentLists[key].id}
@@ -59,6 +59,7 @@ class Board extends React.Component {
             ref={this.addBoardInput}
             name="name"
             placeholder= " + New List" />
+
         </form>
       </div>
     )
